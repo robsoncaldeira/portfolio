@@ -1,20 +1,16 @@
-export function Footer() {
+import type { Dictionary } from "@/dictionaries";
+
+export function Footer({ dict }: { dict: Dictionary }) {
   return (
-    <footer
-      id="contact"
-      className="border-t border-card-border px-6 py-16"
-    >
+    <footer id="contact" className="border-t border-card-border px-6 py-16">
       <div className="mx-auto max-w-5xl">
         <p className="font-mono text-xs tracking-widest uppercase text-accent">
-          Contact
+          {dict.footer.label}
         </p>
         <h2 className="mt-3 text-3xl font-bold tracking-tight">
-          Let&apos;s talk
+          {dict.footer.title}
         </h2>
-        <p className="mt-4 max-w-lg text-muted">
-          Looking for someone who can build data pipelines, automation systems,
-          or AI-powered products from zero to production? Reach out.
-        </p>
+        <p className="mt-4 max-w-lg text-muted">{dict.footer.description}</p>
 
         <div className="mt-8 flex flex-wrap gap-4">
           <a

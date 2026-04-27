@@ -1,21 +1,5 @@
-import { Hero } from "@/components/hero";
-import { About } from "@/components/about";
-import { CaseStudies } from "@/components/case-studies";
-import { Skills } from "@/components/skills";
-import { Footer } from "@/components/footer";
-import { Nav } from "@/components/nav";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <CaseStudies />
-        <Skills />
-      </main>
-      <Footer />
-    </>
-  );
+export default function Root() {
+  redirect("/pt");
 }

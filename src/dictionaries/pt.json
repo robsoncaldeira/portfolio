@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "contact": "Contato"
+  },
+  "hero": {
+    "tagline": "Dados · Automacao · IA",
+    "description": "Construo sistemas que coletam, limpam e centralizam dados de multiplas fontes e automatizam decisoes em cima disso. De pipelines de identity resolution a agentes de IA autonomos.",
+    "cta_projects": "Ver Projetos",
+    "cta_contact": "Entrar em Contato",
+    "scroll": "Rolar"
+  },
+  "about": {
+    "label": "Sobre",
+    "title": "Engenharia de sistemas que transformam dados brutos em decisoes de negocio",
+    "p1": "Projeto e construo pipelines de dados ponta a ponta, sistemas de automacao e agentes de IA. Meu foco e arquitetura centrada no modelo de dados: tornar o modelo de dados a unica fonte da verdade e construir tudo ao redor disso.",
+    "p2": "Na Graventum, construi toda a stack tecnica do zero como engenheiro solo: de web scraping e identity resolution a um sistema multi-agente de IA com feedback loops auto-corretivos e um portal SaaS para clientes.",
+    "stats": {
+      "leads": "Leads processados",
+      "agents": "Agentes de IA autonomos",
+      "sources": "Fontes de dados unificadas",
+      "dedup": "Cobertura de dedup"
+    }
+  },
+  "cases": {
+    "label": "Projetos",
+    "title": "O que eu construi",
+    "subtitle": "Cada projeto abaixo e um sistema real rodando em producao. Problema, abordagem, resultado, com as decisoes tecnicas que fizeram funcionar.",
+    "problem": "O Problema",
+    "approach": "O que eu Construi",
+    "results": "Resultados",
+    "items": [
+      {
+        "tag": "Engenharia de Dados",
+        "title": "Pipeline de Identity Resolution para 10K+ Leads",
+        "problem": "Uma base comercial com 10.000+ leads de 6 fontes diferentes (Google Maps, Brave Search, SharePoint, WhatsApp, formularios web) tinha 21% dos registros sem protecao contra duplicatas. Campos de telefone continham coordenadas GPS, numeros compartilhados (0800) e padroes falsos.",
+        "approach": [
+          "Projetei uma estrategia de dedup em cascata: website (normalizado) como chave primaria, telefone (E.164) como secundaria, CNPJ como terciaria",
+          "Criei uma funcao PostgreSQL normalize_phone_br() que limpa formatacao, rejeita coordenadas e numeros falsos, e normaliza para formato E.164",
+          "Criei uma funcao RPC upsert_commercial_lead() com merge inteligente que nunca sobrescreve dados existentes com NULL (enriquecimento incremental)",
+          "Adicionei auto-deteccao: numeros de celular brasileiros sao automaticamente marcados como alcancaveis via WhatsApp"
+        ],
+        "results": [
+          "Cobertura de dedup: 79% para 95%+",
+          "446 registros sujos limpos",
+          "190 duplicatas de telefone resolvidas",
+          "Zero duplicatas desde a implantacao"
+        ],
+        "tech": ["PostgreSQL", "Supabase RPC", "Normalizacao E.164", "Indexes parciais unicos", "n8n"]
+      },
+      {
+        "tag": "Engenharia de IA",
+        "title": "Sistema Multi-Agente Autonomo com Feedback Loops Auto-Corretivos",
+        "problem": "Um time de agentes de IA produzia outputs rasos: relatorios genericos sem dados reais, metricas alucinadas e sem forma de verificar qualidade. Quando uma ferramenta falhava silenciosamente, o agente continuava gerando conteudo a partir de dados de treinamento em vez de sinalizar a falha.",
+        "approach": [
+          "Implantei 13 agentes especializados (CTO, CFO, CMO, CSO, etc.) cada um com workspace isolado, ferramentas e memoria propria",
+          "Implementei um Padrao de Qualidade de Output: cada agente autodeclara avaliacao (COMPLETE/PARTIAL/STUB) com fontes de dados usadas",
+          "Criei um Quality Gate externo (agente CSO) que valida outputs, compara contagem real de linhas vs. declarado e detecta auto-vies",
+          "Adicionei meta-learning: 2+ STUBs do mesmo agente disparam uma instrucao adaptativa escrita diretamente na configuracao do agente",
+          "Fila de retry com classificacao de tipo de falha (data_not_fetched, analysis_shallow, session_failed) e re-spawn automatico"
+        ],
+        "results": [
+          "Closed-loop: agentes se auto-corrigem sem intervencao humana",
+          "Anti-alucinacao: falhas de ferramenta interrompem execucao",
+          "Meta-learning modifica comportamento dos agentes automaticamente",
+          "Relatorio diario de qualidade via Telegram"
+        ],
+        "tech": ["OpenClaw", "DeepSeek V3", "Python", "Playwright", "PostgreSQL", "Telegram API"]
+      },
+      {
+        "tag": "DevOps / Engenharia de Plataforma",
+        "title": "Provisionamento de Infraestrutura Zero-Touch para Clientes",
+        "problem": "Cada novo cliente precisava de uma VPS dedicada com containers Docker, reverse proxy, certificados SSL e servicos pre-configurados. A configuracao manual levava horas e era propensa a erros.",
+        "approach": [
+          "Criei um workflow n8n (INFRA_01) que chama a API Hetzner Cloud para provisionar VPS, cria registros DNS via API GoDaddy e gera scripts cloud-init",
+          "Resolvi o problema chicken-and-egg do SSL: Fase 1 deploya nginx HTTP-only, Fase 2 roda certbot para certificados, depois reescreve para config HTTPS",
+          "Criei imagens Docker Hub pre-configuradas para ambientes de clientes",
+          "Automatizei toda a cadeia: criacao de VPS, propagacao DNS, deploy de containers, certificacao SSL, monitoramento heartbeat e notificacao Telegram"
+        ],
+        "results": [
+          "Provisionamento reduzido de horas para minutos",
+          "Totalmente automatizado: zero SSH manual",
+          "Monitoramento com heartbeats a cada 5 minutos",
+          "Reprodutivel para cada novo cliente"
+        ],
+        "tech": ["Hetzner Cloud API", "GoDaddy API", "Docker", "cloud-init", "nginx", "Let's Encrypt", "n8n"]
+      },
+      {
+        "tag": "Automacao / Aquisicao de Dados",
+        "title": "Pipeline Automatizado de Prospeccao e Qualificacao de Leads",
+        "problem": "A prospeccao manual nao escalava. Encontrar, pontuar e qualificar leads em multiplos segmentos de negocio exigia visitar centenas de paginas do Google Maps e sites de empresas diariamente.",
+        "approach": [
+          "Criei um servico de scraping FastAPI + Playwright para extracao de dados de negocios do Google Maps em escala",
+          "Implementei scoring baseado em regras (sem custo de LLM) com pesos por segmento: contabilidades +25, imobiliarias +22, clinicas +20",
+          "Criei ingestao dual: scraping agendado (a cada 30 min) mais webhook em tempo real para fontes externas",
+          "Enriquecimento de email via endpoint dedicado /extract-email: visita sites de empresas, checa paginas /contato, extrai links mailto e padroes regex"
+        ],
+        "results": [
+          "10.000+ leads coletados de 6 fontes",
+          "80% de taxa de sucesso na extracao de email",
+          "20 leads por ciclo com execucao paralela",
+          "Todos os leads auto-pontuados na ingestao"
+        ],
+        "tech": ["FastAPI", "Playwright", "Python", "PostgreSQL", "n8n", "Google Maps scraping"]
+      },
+      {
+        "tag": "Engenharia de Produto",
+        "title": "Portal SaaS Multi-Tenant com Deploy Automatizado",
+        "problem": "Clientes precisavam de visibilidade sobre suas automacoes (status, metricas, KPIs) sem serem expostos a complexidade tecnica subjacente (workflows n8n, Evolution API, schemas de banco de dados).",
+        "approach": [
+          "Criei um portal Next.js 14 com onboarding por convite, sessoes baseadas em cookie e registro em multiplas etapas",
+          "Projetei um sistema de protecao de dados em 3 camadas: nomes de campos tecnicos nunca chegam ao UI do cliente",
+          "Implementei impersonacao de admin: operadores podem ver o portal como qualquer cliente via mecanismo seguro de cookies",
+          "Criei deploy automatizado: cliente adiciona uma automacao, um webhook dispara o n8n para buscar o template no GitHub, substituir variaveis, importar e ativar",
+          "Dashboard de metricas time-series com Recharts: cards KPI e graficos Sparkline de 30 dias por automacao"
+        ],
+        "results": [
+          "Ponta a ponta: convite, registro, onboarding, dashboard, tudo automatizado",
+          "Zero exposicao tecnica para clientes",
+          "Admin gerencia qualquer cliente sem credenciais separadas",
+          "Novas automacoes deployam automaticamente via templates GitHub"
+        ],
+        "tech": ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Recharts", "Vercel", "n8n webhooks"]
+      }
+    ]
+  },
+  "skills": {
+    "label": "Habilidades",
+    "title": "Competencias tecnicas",
+    "subtitle": "Tudo listado aqui e respaldado por codigo em producao, nao por certificacoes ou tutoriais.",
+    "categories": [
+      {
+        "title": "Engenharia de Dados",
+        "items": ["Identity Resolution / Dedup de Entidades", "Qualidade de Dados & Limpeza", "ETL / Ingestao Multi-Fonte", "PostgreSQL (functions, triggers, views, indexes parciais)", "Supabase (RPC, RLS, pgvector)", "Normalizacao de Telefone E.164"]
+      },
+      {
+        "title": "IA & Automacao",
+        "items": ["Orquestracao Multi-Agente", "Engenharia de Prompt", "Sistemas de Feedback Closed-Loop", "Quality Gates & Meta-Learning", "Design de Workflows n8n (20+ workflows)", "Web Scraping (Playwright, FastAPI)"]
+      },
+      {
+        "title": "Desenvolvimento Full-Stack",
+        "items": ["Next.js 14 (App Router)", "React 19 / TypeScript", "tRPC / Express", "Tailwind CSS", "Recharts / Visualizacao de Dados", "Design de REST API"]
+      },
+      {
+        "title": "DevOps & Infraestrutura",
+        "items": ["Docker & Docker Compose", "Provisionamento Cloud (Hetzner API)", "nginx / Automacao SSL (Let's Encrypt)", "Monitoramento Prometheus + Grafana", "CI/CD (Vercel, GitHub)", "cloud-init / IaC"]
+      },
+      {
+        "title": "Integracoes",
+        "items": ["WhatsApp Business (Evolution API)", "Microsoft Graph API (Exchange)", "Telegram Bot API", "Extracao de Dados Google Maps", "Gateways de Pagamento (Asaas)", "Gerenciamento DNS (GoDaddy API)"]
+      },
+      {
+        "title": "Arquitetura & Design",
+        "items": ["Design Centrado no Modelo de Dados", "Arquitetura Orientada a Eventos", "SaaS Multi-Tenant", "Padroes Hibridos Webhook / Polling", "Auditoria de Fluxo de Dados", "Padroes de Enriquecimento Incremental"]
+      }
+    ]
+  },
+  "footer": {
+    "label": "Contato",
+    "title": "Vamos conversar",
+    "description": "Procurando alguem que constroi pipelines de dados, sistemas de automacao ou produtos com IA do zero a producao? Entre em contato."
+  }
+}
