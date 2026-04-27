@@ -32,7 +32,7 @@ export function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/robsoncaldeira"
+            href="https://www.linkedin.com/in/robson-caldeira-a712a03a/"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-card-border px-6 py-3 text-sm font-medium text-muted transition-colors hover:border-accent hover:text-foreground"
