@@ -6,78 +6,78 @@
     "contact": "Contacto"
   },
   "hero": {
-    "tagline": "Datos · Automatizacion · IA",
-    "description": "Construyo sistemas que recopilan, limpian y centralizan datos de multiples fuentes y automatizan decisiones sobre ellos. Desde pipelines de identity resolution hasta agentes de IA autonomos.",
+    "tagline": "Datos · Automatización · IA",
+    "description": "Construyo sistemas que recopilan, limpian y centralizan datos de múltiples fuentes y automatizan decisiones sobre ellos. Desde pipelines de identity resolution hasta agentes de IA autónomos.",
     "cta_projects": "Ver Proyectos",
     "cta_contact": "Contactar",
     "scroll": "Desplazar"
   },
   "about": {
     "label": "Acerca",
-    "title": "Ingenieria de sistemas que transforman datos crudos en decisiones de negocio",
-    "p1": "Diseno y construyo pipelines de datos de extremo a extremo, sistemas de automatizacion y agentes de IA. Mi enfoque es la arquitectura centrada en el modelo de datos: hacer del modelo de datos la unica fuente de verdad y construir todo alrededor de eso.",
-    "p2": "En Graventum, construi toda la stack tecnica desde cero como ingeniero solo: desde web scraping e identity resolution hasta un sistema multi-agente de IA con feedback loops auto-correctivos y un portal SaaS para clientes.",
+    "title": "Ingeniería de sistemas que transforman datos crudos en decisiones de negocio",
+    "p1": "Diseño y construyo pipelines de datos de extremo a extremo, sistemas de automatización y agentes de IA. Mi enfoque es la arquitectura centrada en el modelo de datos: hacer del modelo de datos la única fuente de verdad y construir todo alrededor de eso.",
+    "p2": "En Graventum, construí toda la stack técnica desde cero como ingeniero solo: desde web scraping e identity resolution hasta un sistema multi-agente de IA con feedback loops auto-correctivos y un portal SaaS para clientes.",
     "stats": {
       "leads": "Leads procesados",
-      "agents": "Agentes de IA autonomos",
+      "agents": "Agentes de IA autónomos",
       "sources": "Fuentes de datos unificadas",
       "dedup": "Cobertura de dedup"
     }
   },
   "cases": {
     "label": "Proyectos",
-    "title": "Lo que construi",
-    "subtitle": "Cada proyecto es un sistema real en produccion. Problema, enfoque, resultado, con las decisiones tecnicas que lo hicieron funcionar.",
+    "title": "Lo que construí",
+    "subtitle": "Cada proyecto es un sistema real en producción. Problema, enfoque, resultado, con las decisiones técnicas que lo hicieron funcionar.",
     "problem": "El Problema",
-    "approach": "Lo que Construi",
+    "approach": "Lo que Construí",
     "results": "Resultados",
     "items": [
       {
-        "tag": "Ingenieria de Datos",
+        "tag": "Ingeniería de Datos",
         "title": "Pipeline de Identity Resolution para 10K+ Leads",
-        "problem": "Una base comercial con 10.000+ leads de 6 fuentes diferentes (Google Maps, Brave Search, SharePoint, WhatsApp, formularios web) tenia 21% de registros sin proteccion contra duplicados. Los campos de telefono contenian coordenadas GPS, numeros compartidos (0800) y patrones falsos.",
+        "problem": "Una base comercial con 10.000+ leads de 6 fuentes diferentes (Google Maps, Brave Search, SharePoint, WhatsApp, formularios web) tenía 21% de registros sin protección contra duplicados. Los campos de teléfono contenían coordenadas GPS, números compartidos (0800) y patrones falsos.",
         "approach": [
-          "Disene una estrategia de dedup en cascada: website (normalizado) como clave primaria, telefono (E.164) como secundaria, CNPJ como terciaria",
-          "Cree una funcion PostgreSQL normalize_phone_br() que limpia formato, rechaza coordenadas y numeros falsos, y normaliza a formato E.164",
-          "Cree una funcion RPC upsert_commercial_lead() con merge inteligente que nunca sobrescribe datos existentes con NULL (enriquecimiento incremental)",
-          "Agregue auto-deteccion: numeros de celular brasilenos se marcan automaticamente como alcanzables por WhatsApp"
+          "Diseñé una estrategia de dedup en cascada: website (normalizado) como clave primaria, teléfono (E.164) como secundaria, CNPJ como terciaria",
+          "Creé una función PostgreSQL normalize_phone_br() que limpia formato, rechaza coordenadas y números falsos, y normaliza a formato E.164",
+          "Creé una función RPC upsert_commercial_lead() con merge inteligente que nunca sobrescribe datos existentes con NULL (enriquecimiento incremental)",
+          "Agregué auto-detección: números de celular brasileños se marcan automáticamente como alcanzables por WhatsApp"
         ],
         "results": [
           "Cobertura de dedup: 79% a 95%+",
           "446 registros sucios limpiados",
-          "190 duplicados de telefono resueltos",
-          "Cero duplicados desde la implementacion"
+          "190 duplicados de teléfono resueltos",
+          "Cero duplicados desde la implementación"
         ],
-        "tech": ["PostgreSQL", "Supabase RPC", "Normalizacion E.164", "Indexes parciales unicos", "n8n"]
+        "tech": ["PostgreSQL", "Supabase RPC", "Normalización E.164", "Indexes parciales únicos", "n8n"]
       },
       {
-        "tag": "Ingenieria de IA",
-        "title": "Sistema Multi-Agente Autonomo con Feedback Loops Auto-Correctivos",
-        "problem": "Un equipo de agentes de IA producia outputs superficiales: reportes genericos sin datos reales, metricas alucinadas y sin forma de verificar calidad. Cuando una herramienta fallaba silenciosamente, el agente continuaba generando contenido desde datos de entrenamiento en vez de senalar la falla.",
+        "tag": "Ingeniería de IA",
+        "title": "Sistema Multi-Agente Autónomo con Feedback Loops Auto-Correctivos",
+        "problem": "Un equipo de agentes de IA producía outputs superficiales: reportes genéricos sin datos reales, métricas alucinadas y sin forma de verificar calidad. Cuando una herramienta fallaba silenciosamente, el agente continuaba generando contenido desde datos de entrenamiento en vez de señalar la falla.",
         "approach": [
-          "Implemente 13 agentes especializados (CTO, CFO, CMO, CSO, etc.) cada uno con workspace aislado, herramientas y memoria propia",
-          "Implemente un Estandar de Calidad de Output: cada agente autodeclara evaluacion (COMPLETE/PARTIAL/STUB) con fuentes de datos usadas",
-          "Cree un Quality Gate externo (agente CSO) que valida outputs, compara conteo real de lineas vs. declarado y detecta auto-sesgo",
-          "Agregue meta-learning: 2+ STUBs del mismo agente disparan una instruccion adaptativa escrita directamente en la configuracion del agente",
-          "Cola de retry con clasificacion de tipo de falla (data_not_fetched, analysis_shallow, session_failed) y re-spawn automatico"
+          "Implementé 13 agentes especializados (CTO, CFO, CMO, CSO, etc.) cada uno con workspace aislado, herramientas y memoria propia",
+          "Implementé un Estándar de Calidad de Output: cada agente autodeclara evaluación (COMPLETE/PARTIAL/STUB) con fuentes de datos usadas",
+          "Creé un Quality Gate externo (agente CSO) que valida outputs, compara conteo real de líneas vs. declarado y detecta auto-sesgo",
+          "Agregué meta-learning: 2+ STUBs del mismo agente disparan una instrucción adaptativa escrita directamente en la configuración del agente",
+          "Cola de retry con clasificación de tipo de falla (data_not_fetched, analysis_shallow, session_failed) y re-spawn automático"
         ],
         "results": [
-          "Closed-loop: agentes se auto-corrigen sin intervencion humana",
-          "Anti-alucinacion: fallas de herramienta detienen ejecucion",
-          "Meta-learning modifica comportamiento automaticamente",
-          "Reporte diario de calidad via Telegram"
+          "Closed-loop: agentes se auto-corrigen sin intervención humana",
+          "Anti-alucinación: fallas de herramienta detienen ejecución",
+          "Meta-learning modifica comportamiento automáticamente",
+          "Reporte diario de calidad vía Telegram"
         ],
         "tech": ["OpenClaw", "DeepSeek V3", "Python", "Playwright", "PostgreSQL", "Telegram API"]
       },
       {
-        "tag": "DevOps / Ingenieria de Plataforma",
+        "tag": "DevOps / Ingeniería de Plataforma",
         "title": "Aprovisionamiento de Infraestructura Zero-Touch para Clientes",
-        "problem": "Cada nuevo cliente necesitaba una VPS dedicada con contenedores Docker, reverse proxy, certificados SSL y servicios pre-configurados. La configuracion manual tomaba horas y era propensa a errores.",
+        "problem": "Cada nuevo cliente necesitaba una VPS dedicada con contenedores Docker, reverse proxy, certificados SSL y servicios pre-configurados. La configuración manual tomaba horas y era propensa a errores.",
         "approach": [
-          "Cree un workflow n8n (INFRA_01) que llama la API Hetzner Cloud para aprovisionar VPS, crea registros DNS via API GoDaddy y genera scripts cloud-init",
-          "Resolvi el problema chicken-and-egg del SSL: Fase 1 despliega nginx HTTP-only, Fase 2 ejecuta certbot para certificados, luego reescribe a config HTTPS",
-          "Cree imagenes Docker Hub pre-configuradas para ambientes de clientes",
-          "Automatice toda la cadena: creacion de VPS, propagacion DNS, despliegue de contenedores, certificacion SSL, monitoreo heartbeat y notificacion Telegram"
+          "Creé un workflow n8n (INFRA_01) que llama la API Hetzner Cloud para aprovisionar VPS, crea registros DNS vía API GoDaddy y genera scripts cloud-init",
+          "Resolví el problema chicken-and-egg del SSL: Fase 1 despliega nginx HTTP-only, Fase 2 ejecuta certbot para certificados, luego reescribe a config HTTPS",
+          "Creé imágenes Docker Hub pre-configuradas para ambientes de clientes",
+          "Automaticé toda la cadena: creación de VPS, propagación DNS, despliegue de contenedores, certificación SSL, monitoreo heartbeat y notificación Telegram"
         ],
         "results": [
           "Aprovisionamiento reducido de horas a minutos",
@@ -88,39 +88,39 @@
         "tech": ["Hetzner Cloud API", "GoDaddy API", "Docker", "cloud-init", "nginx", "Let's Encrypt", "n8n"]
       },
       {
-        "tag": "Automatizacion / Adquisicion de Datos",
-        "title": "Pipeline Automatizado de Prospeccion y Calificacion de Leads",
-        "problem": "La prospeccion manual no escalaba. Encontrar, puntuar y calificar leads en multiples segmentos de negocio requeria visitar cientos de paginas de Google Maps y sitios web de empresas diariamente.",
+        "tag": "Automatización / Adquisición de Datos",
+        "title": "Pipeline Automatizado de Prospección y Calificación de Leads",
+        "problem": "La prospección manual no escalaba. Encontrar, puntuar y calificar leads en múltiples segmentos de negocio requería visitar cientos de páginas de Google Maps y sitios web de empresas diariamente.",
         "approach": [
-          "Cree un servicio de scraping FastAPI + Playwright para extraccion de datos de negocios de Google Maps a escala",
-          "Implemente scoring basado en reglas (sin costo de LLM) con pesos por segmento: contabilidades +25, inmobiliarias +22, clinicas +20",
-          "Cree ingestion dual: scraping programado (cada 30 min) mas webhook en tiempo real para fuentes externas",
-          "Enriquecimiento de email via endpoint dedicado /extract-email: visita sitios de empresas, chequea paginas /contacto, extrae links mailto y patrones regex"
+          "Creé un servicio de scraping FastAPI + Playwright para extracción de datos de negocios de Google Maps a escala",
+          "Implementé scoring basado en reglas (sin costo de LLM) con pesos por segmento: contabilidades +25, inmobiliarias +22, clínicas +20",
+          "Creé ingestión dual: scraping programado (cada 30 min) más webhook en tiempo real para fuentes externas",
+          "Enriquecimiento de email vía endpoint dedicado /extract-email: visita sitios de empresas, chequea páginas /contacto, extrae links mailto y patrones regex"
         ],
         "results": [
           "10.000+ leads recopilados de 6 fuentes",
-          "80% tasa de exito en extraccion de email",
-          "20 leads por ciclo con ejecucion paralela",
-          "Todos los leads auto-puntuados en ingestion"
+          "80% tasa de éxito en extracción de email",
+          "20 leads por ciclo con ejecución paralela",
+          "Todos los leads auto-puntuados en ingestión"
         ],
         "tech": ["FastAPI", "Playwright", "Python", "PostgreSQL", "n8n", "Google Maps scraping"]
       },
       {
-        "tag": "Ingenieria de Producto",
+        "tag": "Ingeniería de Producto",
         "title": "Portal SaaS Multi-Tenant con Despliegue Automatizado",
-        "problem": "Los clientes necesitaban visibilidad de sus automatizaciones (estado, metricas, KPIs) sin ser expuestos a la complejidad tecnica subyacente (workflows n8n, Evolution API, schemas de base de datos).",
+        "problem": "Los clientes necesitaban visibilidad de sus automatizaciones (estado, métricas, KPIs) sin ser expuestos a la complejidad técnica subyacente (workflows n8n, Evolution API, schemas de base de datos).",
         "approach": [
-          "Cree un portal Next.js 14 con onboarding por invitacion, sesiones basadas en cookie y registro en multiples pasos",
-          "Disene un sistema de proteccion de datos en 3 capas: nombres de campos tecnicos nunca llegan al UI del cliente",
-          "Implemente impersonacion de admin: operadores pueden ver el portal como cualquier cliente via mecanismo seguro de cookies",
-          "Cree despliegue automatizado: cliente agrega una automatizacion, un webhook dispara n8n para buscar el template en GitHub, sustituir variables, importar y activar",
-          "Dashboard de metricas time-series con Recharts: cards KPI y graficos Sparkline de 30 dias por automatizacion"
+          "Creé un portal Next.js 14 con onboarding por invitación, sesiones basadas en cookie y registro en múltiples pasos",
+          "Diseñé un sistema de protección de datos en 3 capas: nombres de campos técnicos nunca llegan al UI del cliente",
+          "Implementé impersonación de admin: operadores pueden ver el portal como cualquier cliente vía mecanismo seguro de cookies",
+          "Creé despliegue automatizado: cliente agrega una automatización, un webhook dispara n8n para buscar el template en GitHub, sustituir variables, importar y activar",
+          "Dashboard de métricas time-series con Recharts: cards KPI y gráficos Sparkline de 30 días por automatización"
         ],
         "results": [
-          "De extremo a extremo: invitacion, registro, onboarding, dashboard, todo automatizado",
-          "Cero exposicion tecnica para clientes",
+          "De extremo a extremo: invitación, registro, onboarding, dashboard, todo automatizado",
+          "Cero exposición técnica para clientes",
           "Admin gestiona cualquier cliente sin credenciales separadas",
-          "Nuevas automatizaciones se despliegan via templates GitHub"
+          "Nuevas automatizaciones se despliegan vía templates GitHub"
         ],
         "tech": ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Recharts", "Vercel", "n8n webhooks"]
       }
@@ -128,38 +128,38 @@
   },
   "skills": {
     "label": "Habilidades",
-    "title": "Competencias tecnicas",
-    "subtitle": "Todo lo listado esta respaldado por codigo en produccion, no por certificaciones o tutoriales.",
+    "title": "Competencias técnicas",
+    "subtitle": "Todo lo listado está respaldado por código en producción, no por certificaciones o tutoriales.",
     "categories": [
       {
-        "title": "Ingenieria de Datos",
-        "items": ["Identity Resolution / Dedup de Entidades", "Calidad de Datos & Limpieza", "ETL / Ingestion Multi-Fuente", "PostgreSQL (functions, triggers, views, indexes parciales)", "Supabase (RPC, RLS, pgvector)", "Normalizacion de Telefono E.164"]
+        "title": "Ingeniería de Datos",
+        "items": ["Identity Resolution / Dedup de Entidades", "Calidad de Datos & Limpieza", "ETL / Ingestión Multi-Fuente", "PostgreSQL (functions, triggers, views, indexes parciales)", "Supabase (RPC, RLS, pgvector)", "Normalización de Teléfono E.164"]
       },
       {
-        "title": "IA & Automatizacion",
-        "items": ["Orquestacion Multi-Agente", "Ingenieria de Prompt", "Sistemas de Feedback Closed-Loop", "Quality Gates & Meta-Learning", "Diseno de Workflows n8n (20+ workflows)", "Web Scraping (Playwright, FastAPI)"]
+        "title": "IA & Automatización",
+        "items": ["Orquestación Multi-Agente", "Ingeniería de Prompt", "Sistemas de Feedback Closed-Loop", "Quality Gates & Meta-Learning", "Diseño de Workflows n8n (20+ workflows)", "Web Scraping (Playwright, FastAPI)"]
       },
       {
         "title": "Desarrollo Full-Stack",
-        "items": ["Next.js 14 (App Router)", "React 19 / TypeScript", "tRPC / Express", "Tailwind CSS", "Recharts / Visualizacion de Datos", "Diseno de REST API"]
+        "items": ["Next.js 14 (App Router)", "React 19 / TypeScript", "tRPC / Express", "Tailwind CSS", "Recharts / Visualización de Datos", "Diseño de REST API"]
       },
       {
         "title": "DevOps & Infraestructura",
-        "items": ["Docker & Docker Compose", "Aprovisionamiento Cloud (Hetzner API)", "nginx / Automatizacion SSL (Let's Encrypt)", "Monitoreo Prometheus + Grafana", "CI/CD (Vercel, GitHub)", "cloud-init / IaC"]
+        "items": ["Docker & Docker Compose", "Aprovisionamiento Cloud (Hetzner API)", "nginx / Automatización SSL (Let's Encrypt)", "Monitoreo Prometheus + Grafana", "CI/CD (Vercel, GitHub)", "cloud-init / IaC"]
       },
       {
         "title": "Integraciones",
-        "items": ["WhatsApp Business (Evolution API)", "Microsoft Graph API (Exchange)", "Telegram Bot API", "Extraccion de Datos Google Maps", "Pasarelas de Pago (Asaas)", "Gestion DNS (GoDaddy API)"]
+        "items": ["WhatsApp Business (Evolution API)", "Microsoft Graph API (Exchange)", "Telegram Bot API", "Extracción de Datos Google Maps", "Pasarelas de Pago (Asaas)", "Gestión DNS (GoDaddy API)"]
       },
       {
-        "title": "Arquitectura & Diseno",
-        "items": ["Diseno Centrado en Modelo de Datos", "Arquitectura Orientada a Eventos", "SaaS Multi-Tenant", "Patrones Hibridos Webhook / Polling", "Auditoria de Flujo de Datos", "Patrones de Enriquecimiento Incremental"]
+        "title": "Arquitectura & Diseño",
+        "items": ["Diseño Centrado en Modelo de Datos", "Arquitectura Orientada a Eventos", "SaaS Multi-Tenant", "Patrones Híbridos Webhook / Polling", "Auditoría de Flujo de Datos", "Patrones de Enriquecimiento Incremental"]
       }
     ]
   },
   "footer": {
     "label": "Contacto",
     "title": "Hablemos",
-    "description": "Buscas a alguien que construya pipelines de datos, sistemas de automatizacion o productos con IA de cero a produccion? Contactame."
+    "description": "¿Buscas a alguien que construya pipelines de datos, sistemas de automatización o productos con IA de cero a producción? Contáctame."
   }
 }

@@ -7,7 +7,7 @@
   },
   "hero": {
     "tagline": "Data · Automation · AI",
-    "description": "I build systems that collect, clean, and centralize data from multiple sources , then automate decisions on top of it. From identity resolution pipelines to autonomous AI agents.",
+    "description": "I build systems that collect, clean, and centralize data from multiple sources and then automate decisions on top of it. From identity resolution pipelines to autonomous AI agents.",
     "cta_projects": "View Projects",
     "cta_contact": "Get in Touch",
     "scroll": "Scroll"
@@ -16,7 +16,7 @@
     "label": "About",
     "title": "Engineering systems that turn raw data into business decisions",
     "p1": "I design and build end-to-end data pipelines, automation systems, and AI-powered agents. My focus is on data-model-centric architecture: making the data model the single source of truth, then building everything else around it.",
-    "p2": "At Graventum, I built the entire technical stack from scratch as a solo engineer , from web scraping and identity resolution to a multi-agent AI system with self-correcting feedback loops and a client-facing SaaS portal.",
+    "p2": "At Graventum, I built the entire technical stack from scratch as a solo engineer: from web scraping and identity resolution to a multi-agent AI system with self-correcting feedback loops and a client-facing SaaS portal.",
     "stats": {
       "leads": "Leads processed",
       "agents": "Autonomous AI agents",
@@ -27,7 +27,7 @@
   "cases": {
     "label": "Projects",
     "title": "What I've built",
-    "subtitle": "Each project below is a real system running in production. Problem, approach, result , with the technical decisions that made it work.",
+    "subtitle": "Each project below is a real system running in production. Problem, approach, result, with the technical decisions that made it work.",
     "problem": "The Problem",
     "approach": "What I Built",
     "results": "Results",
@@ -39,7 +39,7 @@
         "approach": [
           "Designed a cascading dedup strategy: website (normalized) as primary key, phone (E.164) as secondary, CNPJ as tertiary",
           "Built a PostgreSQL function normalize_phone_br() that strips formatting, rejects coordinates and fake numbers, and normalizes to E.164 format",
-          "Created an RPC function upsert_commercial_lead() with intelligent merge , never overwrites existing data with NULL (incremental enrichment)",
+          "Created an RPC function upsert_commercial_lead() with intelligent merge: never overwrites existing data with NULL (incremental enrichment)",
           "Added auto-detection: Brazilian mobile numbers are automatically flagged as WhatsApp-reachable"
         ],
         "results": [
@@ -53,11 +53,11 @@
       {
         "tag": "AI Engineering",
         "title": "Autonomous Multi-Agent System with Self-Correcting Feedback Loops",
-        "problem": "A team of AI agents was producing shallow outputs , generic reports with no real data, hallucinated metrics, and no way to verify quality. When a tool failed silently, the agent would continue generating content from training data instead of flagging the failure.",
+        "problem": "A team of AI agents was producing shallow outputs: generic reports with no real data, hallucinated metrics, and no way to verify quality. When a tool failed silently, the agent would continue generating content from training data instead of flagging the failure.",
         "approach": [
           "Deployed 13 specialized agents (CTO, CFO, CMO, CSO, etc.) each with isolated workspaces, tools, and memory",
           "Implemented an Output Quality Standard: every agent self-declares assessment (COMPLETE/PARTIAL/STUB) with data sources used",
-          "Built an external Quality Gate (CSO agent) that validates outputs , computes real line count vs. declared, detects self-bias",
+          "Built an external Quality Gate (CSO agent) that validates outputs: computes real line count vs. declared, detects self-bias",
           "Added meta-learning: 2+ STUBs from the same agent trigger an adaptive instruction written directly into the agent's configuration",
           "Retry queue with failure-type classification (data_not_fetched, analysis_shallow, session_failed) and automatic re-spawn"
         ],
@@ -108,16 +108,16 @@
       {
         "tag": "Product Engineering",
         "title": "Multi-Tenant SaaS Portal with Automated Deployment",
-        "problem": "Clients needed visibility into their automations , status, metrics, KPIs , without being exposed to the underlying technical complexity (n8n workflows, Evolution API, database schemas).",
+        "problem": "Clients needed visibility into their automations (status, metrics, KPIs) without being exposed to the underlying technical complexity (n8n workflows, Evolution API, database schemas).",
         "approach": [
           "Built a Next.js 14 portal with invite-based onboarding, cookie-based sessions, and multi-step registration",
           "Designed a 3-layer data protection system: technical field names never reach the client UI",
           "Implemented admin impersonation: operators can view the portal as any client via a secure cookie-based mechanism",
           "Created automated deployment: client adds an automation, a webhook triggers n8n to fetch the template from GitHub, substitute variables, import, and activate",
-          "Built time-series metrics dashboard with Recharts , KPI cards and 30-day Sparkline graphs per automation"
+          "Built time-series metrics dashboard with Recharts: KPI cards and 30-day Sparkline graphs per automation"
         ],
         "results": [
-          "End-to-end: invite, register, onboard, dashboard , all automated",
+          "End-to-end: invite, register, onboard, dashboard, all automated",
           "Zero technical exposure to clients",
           "Admin manages any client without separate credentials",
           "New automations deploy automatically via GitHub templates"
@@ -129,7 +129,7 @@
   "skills": {
     "label": "Skills",
     "title": "Technical competencies",
-    "subtitle": "Everything listed here is backed by production code , not certifications or tutorials.",
+    "subtitle": "Everything listed here is backed by production code, not certifications or tutorials.",
     "categories": [
       {
         "title": "Data Engineering",
